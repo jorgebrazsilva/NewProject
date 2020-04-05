@@ -42,7 +42,7 @@ namespace Scouter.Web.Seed
 
             var usuario = new UsuarioViewModel
             {
-                Id = Guid.Parse(user.Id),
+                UsuarioId = Guid.Parse(user.Id),
                 Nome = nome,
                 Email = email,
                 Ativo = true,

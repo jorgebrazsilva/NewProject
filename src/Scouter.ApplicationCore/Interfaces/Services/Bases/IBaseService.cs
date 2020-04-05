@@ -8,13 +8,13 @@ namespace Scouter.ApplicationCore.Interfaces.Services.Bases
 {
     public interface IBaseService<T> : IDisposable where T : BaseViewModel
     {
-        T Add(T obj);
+        bool Add(T obj);      
+        bool Update(T obj);
+        bool Remove(long id);
+        bool Remove(int id);
         T GetById(long id);
         T GetById(int id);
         Task<IEnumerable<T>> GetAllAsync();
         IEnumerable<T> GetAllActive();
-        T Update(T obj);
-        bool Remove(long id);
-        bool Remove(int id);
     }
 }

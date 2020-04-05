@@ -49,7 +49,7 @@ namespace Scouter.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     model.UsuarioId = UserId;
-                    model = _positionService.Add(model);
+                    _positionService.Add(model);
                     AlertToastr(EnumTipoAlert.success, "Registro cadastrado com sucesso.");
                     return RedirectToAction("Index");
                 }
@@ -82,7 +82,7 @@ namespace Scouter.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    model = _positionService.Update(model);
+                    _positionService.Update(model);
                     AlertToastr(EnumTipoAlert.success, "Registro atualizado com sucesso.");
                     return RedirectToAction("Index");
                 }

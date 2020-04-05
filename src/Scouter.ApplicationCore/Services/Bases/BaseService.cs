@@ -33,17 +33,11 @@ namespace Scouter.ApplicationCore.Services.Bases
         {
             return await _uow.CommitAsync();
         }
-        public virtual T Add(T obj)
-        {           
+        public virtual bool Add(T obj)
+        {
             var entity = _mapper.Map<TEntity>(obj);
-           
-
             _repository.Add(entity);
-
-            Commit();
-             
-
-            return _mapper.Map<T>(entity);
+            return Commit();
         }
 
         public virtual T GetById(long id)
@@ -65,20 +59,12 @@ namespace Scouter.ApplicationCore.Services.Bases
             return _mapper.Map<IEnumerable<T>>(_repository.GetAllActive());
         }
 
-        public virtual T Update(T obj)
-        {           
+        public virtual bool Update(T obj)
+        {
             var entity = _mapper.Map<TEntity>(obj);
-           
-
             _repository.Update(entity);
-
-            Commit();
-             
-
-            return _mapper.Map<T>(entity);
+            return Commit();
         }
-
-       
 
         public virtual bool Remove(long id)
         {
