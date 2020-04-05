@@ -9,6 +9,7 @@ using Scouter.ApplicationCore.Enumerators;
 using Scouter.ApplicationCore.Interfaces.Services;
 using Scouter.ApplicationCore.ViewModels;
 using Scouter.Web.Interfaces;
+using Scouter.ApplicationCore.Exception;
 
 namespace Scouter.Web.Controllers
 {
@@ -39,7 +40,6 @@ namespace Scouter.Web.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult Create(PositionViewModel model)
         {
@@ -53,6 +53,10 @@ namespace Scouter.Web.Controllers
                     return RedirectToAction("Index");
                 }
             }
+            catch (RegraNegocioException ex)
+            {
+                AlertToastr(EnumTipoAlert.warning, ex.Message);
+            }
             catch (Exception ex)
             {
                 AlertToastr(EnumTipoAlert.error, ex.Message);
@@ -65,6 +69,10 @@ namespace Scouter.Web.Controllers
             try
             {
                 model = _positionService.GetById(id);
+            }
+            catch (RegraNegocioException ex)
+            {
+                AlertToastr(EnumTipoAlert.warning, ex.Message);
             }
             catch (Exception ex)
             {
@@ -84,6 +92,10 @@ namespace Scouter.Web.Controllers
                     return RedirectToAction("Index");
                 }
             }
+            catch (RegraNegocioException ex)
+            {
+                AlertToastr(EnumTipoAlert.warning, ex.Message);
+            }
             catch (Exception ex)
             {
                 AlertToastr(EnumTipoAlert.error, ex.Message);
@@ -102,6 +114,10 @@ namespace Scouter.Web.Controllers
                 if (!success) return BadRequest("Não foi possível remover o registro.");
 
                 return Ok("Registro removido com sucesso.");
+            }
+            catch (RegraNegocioException ex)
+            {
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {

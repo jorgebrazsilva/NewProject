@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Scouter.ApplicationCore.Entities.Bases;
+using Scouter.ApplicationCore.Exception;
 using Scouter.ApplicationCore.Interfaces.Repository.Bases;
 using Scouter.ApplicationCore.Interfaces.Services.Bases;
 using Scouter.ApplicationCore.Interfaces.UoW;

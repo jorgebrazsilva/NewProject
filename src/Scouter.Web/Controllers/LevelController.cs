@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Scouter.Web.Controllers.Bases;
 using Scouter.ApplicationCore.Enumerators;
+using Scouter.ApplicationCore.Exception;
 
 namespace Scouter.Web.Controllers
 {
@@ -28,9 +29,13 @@ namespace Scouter.Web.Controllers
             {
                 model.AddRange(_levelService.GetAllActive().ToList());
             }
+            catch (RegraNegocioException ex)
+            {
+                AlertToastr(EnumTipoAlert.warning, ex.Message);
+            }
             catch (Exception ex)
             {
-                AlertToastr(EnumTipoAlert.error, ex.Message);               
+                AlertToastr(EnumTipoAlert.error, ex.Message);
             }
             return View(model);
         }
@@ -53,9 +58,13 @@ namespace Scouter.Web.Controllers
                     return RedirectToAction("Index");
                 }
             }
+            catch (RegraNegocioException ex)
+            {
+                AlertToastr(EnumTipoAlert.warning, ex.Message);
+            }
             catch (Exception ex)
             {
-                AlertToastr(EnumTipoAlert.error, ex.Message);              
+                AlertToastr(EnumTipoAlert.error, ex.Message);
             }
             return View(model);
         }
@@ -66,9 +75,13 @@ namespace Scouter.Web.Controllers
             {
                 model = _levelService.GetById(id);
             }
+            catch (RegraNegocioException ex)
+            {
+                AlertToastr(EnumTipoAlert.warning, ex.Message);
+            }
             catch (Exception ex)
             {
-                AlertToastr(EnumTipoAlert.error, ex.Message);             
+                AlertToastr(EnumTipoAlert.error, ex.Message);
             }
             return View(model);
         }
@@ -84,9 +97,13 @@ namespace Scouter.Web.Controllers
                     return RedirectToAction("Index");
                 }
             }
+            catch (RegraNegocioException ex)
+            {
+                AlertToastr(EnumTipoAlert.warning, ex.Message);
+            }
             catch (Exception ex)
             {
-                AlertToastr(EnumTipoAlert.error, ex.Message);            
+                AlertToastr(EnumTipoAlert.error, ex.Message);
             }
             return View(model);
         }
@@ -102,6 +119,10 @@ namespace Scouter.Web.Controllers
                 if (!success) return BadRequest("Não foi possível remover o registro.");
 
                 return Ok("Registro removido com sucesso.");
+            }
+            catch (RegraNegocioException ex)
+            {
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
