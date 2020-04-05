@@ -30,8 +30,7 @@ namespace Scouter.Web.Controllers
             }
             catch (Exception ex)
             {
-                AlertToastr(EnumTipoAlert.error, ex.Message);
-                AdicionarExceptionToModelState(ex);
+                AlertToastr(EnumTipoAlert.error, ex.Message);               
             }
             return View(model);
         }
@@ -56,8 +55,7 @@ namespace Scouter.Web.Controllers
             }
             catch (Exception ex)
             {
-                AlertToastr(EnumTipoAlert.error, ex.Message);
-                AdicionarExceptionToModelState(ex);
+                AlertToastr(EnumTipoAlert.error, ex.Message);              
             }
             return View(model);
         }
@@ -70,8 +68,7 @@ namespace Scouter.Web.Controllers
             }
             catch (Exception ex)
             {
-                AlertToastr(EnumTipoAlert.error, ex.Message);
-                AdicionarExceptionToModelState(ex);
+                AlertToastr(EnumTipoAlert.error, ex.Message);             
             }
             return View(model);
         }
@@ -89,8 +86,7 @@ namespace Scouter.Web.Controllers
             }
             catch (Exception ex)
             {
-                AlertToastr(EnumTipoAlert.error, ex.Message);
-                AdicionarExceptionToModelState(ex);
+                AlertToastr(EnumTipoAlert.error, ex.Message);            
             }
             return View(model);
         }
