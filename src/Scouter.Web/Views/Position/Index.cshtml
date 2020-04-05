@@ -36,9 +36,11 @@
                                             <td>@Html.DisplayFor(modelItem => item.PositionName)</td>
                                             <td>@Html.DisplayFor(modelItem => item.PositionNameNote)</td>
 
-                                            <td class="text-center">
-                                                <button class="btn btn-outline btn-success" title="Editar" onclick="location.href='@Url.Action("Edit", new { id = item.Id })'"><i class="fa fa-edit"></i></button>
-                                                <button class="btn btn-outline btn-danger" title="Remover" onclick="DeletarRegistro(@item.Id,'/Position/Delete', RenderBodyAjax)"><i class="fa fa-trash"></i></button>
+                                            <td>
+                                                <div class="btn-grid">
+                                                    <button class="btn btn-outline btn-success" title="Editar" onclick="location.href='@Url.Action("Edit", new { id = item.Id })'"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-outline btn-danger" title="Remover" onclick="DeletarRegistro(@item.Id,'/Position/Delete', RenderBodyAjax)"><i class="fa fa-trash"></i></button>
+                                                </div>
                                             </td>
                                         </tr>
                                     }
