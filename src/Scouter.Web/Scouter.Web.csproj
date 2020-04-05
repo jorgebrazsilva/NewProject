@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-Scouter.Web-298FB597-BDA5-4EC7-9799-A486570F011A</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="ElmahCore" Version="1.2.5" />
+    <PackageReference Include="ElmahCore.Sql" Version="1.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Data\Script\" />
+    <Folder Include="wwwroot\js\Controllers\" />
+    <Folder Include="wwwroot\js\Enum\" />
+    <Folder Include="wwwroot\js\Shared\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Scouter.ApplicationCore\Scouter.ApplicationCore.csproj" />
+    <ProjectReference Include="..\Scouter.IoC\Scouter.IoC.csproj" />
+  </ItemGroup>
+
+</Project>

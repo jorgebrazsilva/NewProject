@@ -1,0 +1,11 @@
+﻿@{
+    if (Context.Request.IsAjaxRequest())
+    {
+        Layout = null;
+        <script src="~/js/Shared/InitLib.js"></script>
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
