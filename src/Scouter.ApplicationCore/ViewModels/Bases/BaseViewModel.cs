@@ -5,8 +5,9 @@ using System.Linq;
 namespace Scouter.ApplicationCore.ViewModels.Bases
 {
     public abstract class BaseViewModel
-    {   
-        public Guid IdUsuario { get; set; }
-        public bool Ativo { get; set; }        
+    {
+        public bool Ativo { get; set; }
+        public Guid UsuarioId { get; set; }
+        public DateTime DataCriacao { get; set; }
     }
 }
